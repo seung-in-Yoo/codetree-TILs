@@ -1,0 +1,6 @@
+inp = input()
+arr = inp.split("-")
+yyyy = int(arr[2])
+mm = int(arr[0])
+dd = int(arr[1])
+print(f'{yyyy}.{mm}.{dd}')
