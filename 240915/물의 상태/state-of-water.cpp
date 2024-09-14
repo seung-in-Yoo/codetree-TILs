@@ -7,11 +7,11 @@ int main() {
     if (temp < 0) {
         cout << "ice" << endl;
     }
-    else if (0< temp < 100) {
-        cout << "water" << endl;
+    else if (temp >=100) {
+        cout << "vapor" << endl;
     }
     else {
-        cout << "vapor" << endl;
+        cout << "water" << endl;
     }
     return 0;
 }
