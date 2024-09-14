@@ -10,8 +10,5 @@ int main() {
     else if (n >= 1000) {
         cout << "mask" << endl;
     }
-    else {
-        cout << "Nothing" << endl;
-    }
     return 0;
 }
