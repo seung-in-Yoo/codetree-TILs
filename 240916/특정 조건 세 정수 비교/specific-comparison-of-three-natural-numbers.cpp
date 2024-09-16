@@ -12,7 +12,7 @@ int main() {
     else {
         cout << 0 << " ";
     }
-    if (a==b && a==c) {
+    if (a==b && b==c) {
         cout << 1 << " ";
     }
     else {
