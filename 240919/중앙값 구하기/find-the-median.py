@@ -4,9 +4,9 @@ a = int(arr[0])
 b = int(arr[1])
 c = int(arr[2])
 
-if a>b and a<c:
+if (b<a<c) or (c<a<b):
     print(a)
-elif b>a and b<c:
+elif (a<b<c) or (c<b<a):
     print(b)
 else:
     print(c)
