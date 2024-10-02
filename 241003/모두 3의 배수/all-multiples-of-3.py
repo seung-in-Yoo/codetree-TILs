@@ -1,8 +1,8 @@
 numbers = list(map(int, input().split()))
-satisfied = False
+satisfied = True
 for number in numbers:
-    if number % 3 == 0:
-        satisfied = True
+    if number % 3 != 0:
+        satisfied = False
         break
 if satisfied == True:
     print(1)
