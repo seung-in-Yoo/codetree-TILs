@@ -1,10 +1,12 @@
-numbers = list(map(int, input().split()))
-satisfied = True
+numbers = [int(input()) for _ in range(5)]  
+satisfied = True  
+
 for number in numbers:
-    if number % 3 != 0:
+    if number % 3 != 0:  
         satisfied = False
         break
+
 if satisfied == True:
-    print(1)
+    print(1)  
 else:
     print(0)
