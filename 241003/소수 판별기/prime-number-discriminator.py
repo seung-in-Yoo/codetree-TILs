@@ -1,8 +1,8 @@
 n = int(input())
-satisfied = False
-for i in range(1,n):
-    if n % i != 0:
-        satisfied = True
+satisfied = True
+for i in range(2,n):
+    if n % i == 0:
+        satisfied = False
         break
 if satisfied == True:
     print("P")
