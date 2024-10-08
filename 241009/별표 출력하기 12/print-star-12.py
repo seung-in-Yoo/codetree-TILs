@@ -1,9 +1,15 @@
 n = int(input())
 
 for i in range(n):
-    if i % 2 == 0:
-        print('* ' * ((n + 1) // 2))
-    else:
-        spaces = ' ' * (2 * (i // 2) + 1)
-        stars = '*' + spaces
-        print(stars * ((n - i + 1) // 2))
+    for j in range(n):
+        if j % 2 == 0:
+            if i == 0:
+                print("* ", end="")
+            else:
+                print("  ", end="")
+        else:
+            if i <= j:
+                print("* ", end="")
+            else:
+                print("  ", end="")
+    print()
