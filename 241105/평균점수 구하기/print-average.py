@@ -8,4 +8,4 @@ for i in score:
     score_sum += i
     count += 1
     score_avg = score_sum/count
-print(score_avg)
+print(f'{score_avg:1f}')
