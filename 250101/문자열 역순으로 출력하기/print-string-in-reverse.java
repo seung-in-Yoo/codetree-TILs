@@ -1,14 +1,17 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        String[] inputs = new String[4];
+        Scanner sc = new Scanner(System.in);
 
-        inputs[0] = "Orange";
-        inputs[1] = "Black";
-        inputs[2] = "Purple";
-        inputs[3] = "White";
+        String[] str = new String[4];
         
-        for (int i = inputs.length - 1; i >= 0; i--) {
-            System.out.println(inputs[i]);
+        for(int i = 0; i < 4; i++) {
+            str[i] = sc.next();
+        }
+        
+        for(int i = 3; i >= 0; i--) {
+            System.out.println(str[i]);
         }
     }
 }
