@@ -1,16 +1,16 @@
 def plus(a, c):
-    return a + c
+    return int(a + c)
 
 def minus(a, c):
-    return a - c
+    return int(a - c)
 
 def mul(a, c):
-    return a * c
+    return int(a * c)
 
 def div(a, c):
     if c == 0:
         return "0으로 나눌 수 없습니다."
-    return a / c
+    return int(a / c)
 
 def main():
     a, o, c = input().split()
