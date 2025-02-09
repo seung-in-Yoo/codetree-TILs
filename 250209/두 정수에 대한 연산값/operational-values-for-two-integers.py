@@ -1,14 +1,15 @@
-a, b = map(int, input().split())
+a, b = tuple(map(int, input().split()))
 
-def cal(a, b):
-    if a > b:
-        c = a + 25
-        d = b * 2
+def change_number(a, b):
+    if(a > b):
+        b *= 2
+        a += 25
     else:
-        c = b + 25
-        d = a * 2
-    return d, c  
+        a *= 2
+        b += 25
 
-new_a, new_b = cal(a, b)
-print(new_a, new_b)
+    return a, b
 
+a, b = change_number(a, b)
+
+print(a, b)
