@@ -25,9 +25,6 @@ public class Main {
         sc.nextLine(); 
 
         Person[] people = new Person[n];
-
-        
-        String lastName = "";
         Person lastPerson = null;
 
         for (int i = 0; i < n; i++) {
@@ -37,11 +34,8 @@ public class Main {
 
             people[i] = new Person(name, address, city);
 
-            
-            if (lastPerson == null || name.length() > lastName.length() ||
-                (name.length() == lastName.length() && name.charAt(0) > lastName.charAt(0))) {
+            if (lastPerson == null || isBigger(name, lastPerson.name)) {
                 lastPerson = people[i];
-                lastName = name;
             }
         }
 
@@ -51,5 +45,20 @@ public class Main {
         }
 
         sc.close();
+    }
+
+    
+    public static boolean isBigger(String a, String b) {
+        int len = Math.min(a.length(), b.length());
+
+        for (int i = 0; i < len; i++) {
+            if (a.charAt(i) > b.charAt(i)) {
+                return true;    
+            } else if (a.charAt(i) < b.charAt(i)) {
+                return false;   
+            }
+        }
+
+        return a.length() > b.length();
     }
 }
