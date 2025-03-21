@@ -12,6 +12,10 @@ public class Main {
         
         int latedTime = endMinutes - startMinutes;
 
-        System.out.println(latedTime);
+        if (latedTime < 0) {
+            System.out.println(-1);
+        } else {
+            System.out.println(latedTime);
+        }  
     }
 }
