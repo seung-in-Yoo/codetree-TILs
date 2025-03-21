@@ -1,4 +1,4 @@
-iimport java.util.Scanner;
+import java.util.Scanner;
 
 public class Main {
     public static int numOfDays(int m, int d) {
