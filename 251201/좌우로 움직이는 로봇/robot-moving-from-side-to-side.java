@@ -1,61 +1,69 @@
 import java.util.Scanner;
 
 public class Main {
-    static final int MAX_TIME = 100_000;  
+    public static final int MAX_T = 1000000;
     
+    public static int n, m;
+    public static int[] positionA = new int[MAX_T  + 1];
+    public static int[] positionB = new int[MAX_T  + 1];
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt(); 
-        int m = sc.nextInt(); 
-
-        int[] posA = new int[MAX_TIME + 1]; 
-        int[] posB = new int[MAX_TIME + 1];
-
-        int timeA = 0, currA = 0;
-        for (int i = 0; i < n; i++) {
-            int t = sc.nextInt();
-            char d = sc.next().charAt(0);
-            int dir = (d == 'L') ? -1 : 1;
-
-            for (int j = 0; j < t; j++) {
-                currA += dir;
-                timeA++;
-                posA[timeA] = currA;
-            }
-        }
-
+        n = sc.nextInt();
+        m = sc.nextInt();
         
-        for (int i = timeA + 1; i <= MAX_TIME; i++) {
-            posA[i] = posA[timeA];
-        }
-
-        int timeB = 0, currB = 0;
-        for (int i = 0; i < m; i++) {
+        int timeA = 1;
+        for(int i = 0; i < n; i++) {
             int t = sc.nextInt();
             char d = sc.next().charAt(0);
-            int dir = (d == 'L') ? -1 : 1;
-
-            for (int j = 0; j < t; j++) {
-                currB += dir;
+            
+            while(t-- > 0) {
+                if(d == 'R')
+                    positionA[timeA] = positionA[timeA - 1] + 1;
+                else
+                    positionA[timeA] = positionA[timeA - 1] - 1;
+                
+                timeA++;
+            }
+        }
+        
+        int timeB = 1;
+        for(int i = 0; i < m; i++) {
+            int t = sc.nextInt();
+            char d = sc.next().charAt(0);
+            
+            while(t-- > 0) {
+                if(d == 'R')
+                    positionB[timeB] = positionB[timeB - 1] + 1;
+                else
+                    positionB[timeB] = positionB[timeB - 1] - 1;
+                
                 timeB++;
-                posB[timeB] = currB;
             }
         }
-
-        for (int i = timeB + 1; i <= MAX_TIME; i++) {
-            posB[i] = posB[timeB];
+        
+        if(timeA < timeB) {
+            for(int i = timeA; i < timeB; i++) {
+                positionA[i] = positionA[i - 1];
+            }
         }
-
-        int maxTime = Math.max(timeA, timeB);
-
+        else if(timeA > timeB) {
+            for(int i = timeB; i < timeA; i++) {
+                positionB[i] = positionB[i - 1];
+            }
+        }
+        
         int count = 0;
-        for (int t = 1; t <= maxTime; t++) {
-            if (posA[t] == posB[t] && posA[t - 1] != posB[t - 1]) {
+        int maxTime = 0;
+        if(timeA < timeB)
+            maxTime = timeB;
+        else
+            maxTime = timeA;
+        
+        for(int i = 1; i < maxTime; i++) {
+            if(positionA[i] == positionB[i] && positionA[i - 1] != positionB[i - 1])
                 count++;
-            }
         }
-
-        System.out.println(count);
+        System.out.print(count);
     }
 }
